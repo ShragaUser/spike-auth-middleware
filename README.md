@@ -12,7 +12,14 @@ npm install spike-auth-middleware
 
 ```js
 const { getSpikeAuthMiddleWare } = require("spike-auth-middleware");
-const allowForReadScopeOnly =  getSpikeAuthMiddleWare('audience',["READ"], 'key');
+
+const configuration = {
+    audience: 'very-important-audience',
+    allowedScopes: ["READ"],
+    secretOrKey: 'key'
+};
+
+const allowForReadScopeOnly =  getSpikeAuthMiddleWare(configuration);
 
 // express.js code:
 app.get('/', allowForReadScopeOnly, (req,res,next) => {
