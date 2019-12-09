@@ -1,6 +1,6 @@
 const config = () => {
     return {
-        secretOrKey: 'secret',
+        allowedScopes: ['READ'],
         audience: 'audience'
     }
 };

@@ -2,7 +2,11 @@ const getPassport = require("./passport");
 const config = require("./config")();
 
 const getSpikeAuthMiddleWare = (options) => {
-    const { audience, secretOrKey, allowedScopes } = { ...config, ...options };
+    const { audience, pathToPublicKey, allowedScopes } = { ...config, ...options };
+
+    if (!(pathToPublicKey && audience && allowedScopes)) {
+        throw new Error('must provide pathToPublicKey && audience && allowedScopes to auth middleware');
+    }
 
     const verifyAudience = (aud) => aud === audience;
     const verifyScopes = (scopes) => scopes.some(scope => allowedScopes.includes(scope));

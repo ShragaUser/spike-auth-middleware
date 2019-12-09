@@ -30,8 +30,8 @@ app.get('/', allowForReadScopeOnly, (req,res,next) => {
 ### Options For getSpikeAuthMiddleWare
 
 * _audience_: (String) audience to demand in JWT payload
-* _secretOrKey_: (Buffer/String) secret to authenticate JWT signature with
-* _allowedScopes_: (Array) list of all allowed scopes in this middleware
+* _pathToPublicKey_: full path to public key to authenticate JWT signature with
+* _allowedScopes_: (Array) list of all allowed scopes in this middleware - default: ["READ"]
 
 
 
