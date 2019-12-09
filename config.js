@@ -4,3 +4,5 @@ const config = () => {
         audience: 'audience'
     }
 };
+
+module.exports = config;
