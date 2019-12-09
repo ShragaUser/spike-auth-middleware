@@ -12,7 +12,7 @@ const getSpikeAuthMiddleWare = (options) => {
     const getPublicKey = function () {
         if (this.key)
             return this.key;
-        this.key = fs.readFileSync(pathToPublicKey, 'utf8');
+        this.key = fs.readFileSync(pathToPublicKey);
         return this.key;
     };
 

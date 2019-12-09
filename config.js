@@ -1,6 +1,6 @@
 const config = () => {
     return {
-        allowedScopes: ['READ'],
+        allowedScopes: ['read'],
         audience: 'audience'
     }
 };

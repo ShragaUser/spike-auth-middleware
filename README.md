@@ -11,12 +11,13 @@ npm install spike-auth-middleware
 ### Usage
 
 ```js
+const path = require("path");
 const { getSpikeAuthMiddleWare } = require("spike-auth-middleware");
 
 const configuration = {
-    audience: 'very-important-audience',
-    allowedScopes: ["READ"],
-    secretOrKey: 'key'
+    audience: 'audience',
+    allowedScopes: ["read"],
+    pathToPublicKey: path.resolve(__dirname, 'relative/path/to/certificate')
 };
 
 const allowForReadScopeOnly =  getSpikeAuthMiddleWare(configuration);
@@ -31,7 +32,7 @@ app.get('/', allowForReadScopeOnly, (req,res,next) => {
 
 * _audience_: (String) audience to demand in JWT payload
 * _pathToPublicKey_: full path to public key to authenticate JWT signature with
-* _allowedScopes_: (Array) list of all allowed scopes in this middleware - default: ["READ"]
+* _allowedScopes_: (Array) list of all allowed scopes in this middleware - default: ["read"]
 
 
 
