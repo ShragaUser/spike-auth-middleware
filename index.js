@@ -1,3 +1,4 @@
+const fs = require("fs");
 const getPassport = require("./passport");
 const config = require("./config")();
 
@@ -7,6 +8,14 @@ const getSpikeAuthMiddleWare = (options) => {
     if (!(pathToPublicKey && audience && allowedScopes)) {
         throw new Error('must provide pathToPublicKey && audience && allowedScopes to auth middleware');
     }
+
+    const getPublicKey = function () {
+        if (this.key)
+            return this.key;
+        this.key = fs.readFileSync(pathToPublicKey, 'utf8');
+        return this.key;
+    };
+
 
     const verifyAudience = (aud) => aud === audience;
     const verifyScopes = (scopes) => scopes.some(scope => allowedScopes.includes(scope));
@@ -18,7 +27,7 @@ const getSpikeAuthMiddleWare = (options) => {
         done(null, verified);
     };
 
-    const passport = getPassport(secretOrKey, verify);
+    const passport = getPassport(getPublicKey(), verify);
 
     return passport.authenticate('jwt', { session: false });
 };

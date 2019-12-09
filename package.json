@@ -1,11 +1,12 @@
 {
   "name": "spike-auth-middleware",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "index.js",
   "author": "Daniel Kidon",
   "license": "ISC",
   "dependencies": {
+    "fs": "0.0.1-security",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0"
   }
