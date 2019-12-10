@@ -3,7 +3,7 @@ const getPassport = require("./passport");
 const config = require("./config")();
 
 const getSpikeAuthMiddleWare = (options) => {
-    const { audience, pathToPublicKey, allowedScopes } = { ...config, ...options };
+    const { audience, pathToPublicKey, allowedScopes, useBearerToken } = { ...config, ...options };
 
     if (!(pathToPublicKey && audience && allowedScopes)) {
         throw new Error('must provide pathToPublicKey && audience && allowedScopes to auth middleware');
@@ -27,7 +27,7 @@ const getSpikeAuthMiddleWare = (options) => {
         done(null, verified);
     };
 
-    const passport = getPassport(getPublicKey(), verify);
+    const passport = getPassport(getPublicKey(), useBearerToken, verify);
 
     return passport.authenticate('jwt', { session: false });
 };

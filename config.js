@@ -1,7 +1,8 @@
 const config = () => {
     return {
         allowedScopes: ['read'],
-        audience: 'audience'
+        audience: 'audience',
+        useBearerToken: true
     }
 };
 
