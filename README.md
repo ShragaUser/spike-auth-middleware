@@ -1,6 +1,6 @@
 # [Spike](https://github.com/rabiran/OSpike) npm module: "spike-auth-middleware"
 
-This REPO is a Spike npm module that can be used to recieve a Authorization Bearer Token express.js middleware to allow certain scopes to certain endpoints.
+This REPO is a Spike npm module that can be used to recieve an Authorization Bearer Token express.js middleware to allow certain scopes to certain endpoints.
 
 
 ### Install
