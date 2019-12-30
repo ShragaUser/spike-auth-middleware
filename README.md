@@ -2,11 +2,11 @@
 
 This REPO is a Spike npm module that can be used to recieve an Authorization Bearer Token express.js middleware to allow certain scopes to certain endpoints.
 
+[![npm version](https://badge.fury.io/js/spike-auth-middleware.svg)](https://badge.fury.io/js/spike-auth-middleware)
 
-### Install
-```
-npm install spike-auth-middleware
-```
+[![NPM](https://nodei.co/npm/spike-auth-middleware.png)](https://nodei.co/npm/spike-auth-middleware/)
+
+----
 
 ### Usage
 
