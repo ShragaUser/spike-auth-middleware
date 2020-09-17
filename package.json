@@ -5,6 +5,11 @@
   "main": "index.js",
   "author": "Daniel Kidon",
   "license": "ISC",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postversion": "git push --follow-tags",
+    "postrelease": "git push --follow-tags & npm publish"
+  },
   "dependencies": {
     "fs": "0.0.1-security",
     "passport": "^0.4.1",
