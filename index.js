@@ -1,5 +1,5 @@
 const fs = require("fs");
-const getPassport = require("./passport");
+const getPassportAuthMiddleware = require("./passport");
 const config = require("./config")();
 
 const getSpikeAuthMiddleWare = (options) => {
@@ -16,7 +16,6 @@ const getSpikeAuthMiddleWare = (options) => {
         return this.key;
     };
 
-
     const verifyAudience = (aud) => aud === audience;
     const verifyScopes = (scopes) => scopes.some(scope => allowedScopes.includes(scope));
     const getAndVerifiyAudienceFromJWT = jwt => jwt && jwt.aud && verifyAudience(jwt.aud);
@@ -27,10 +26,7 @@ const getSpikeAuthMiddleWare = (options) => {
         done(null, verified);
     };
 
-    const passport = getPassport(getPublicKey(), useBearerToken, verify);
-
-    return passport.authenticate('jwt', { session: false });
+    return getPassportAuthMiddleware(getPublicKey(), useBearerToken, verify);
 };
-
 
 module.exports = { getSpikeAuthMiddleWare };
